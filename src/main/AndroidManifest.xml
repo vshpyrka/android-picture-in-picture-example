@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application android:theme="@style/Theme.AppCompat">
+
+        <activity android:name="com.example.pip.PictureInPictureLauncherActivity" />
+
+        <!--
+        User might select a new video when browsing for content on the main screen,
+        while a video playback activity is in PiP mode.
+        Play the new video in the existing playback activity in full screen mode,
+        instead of launching a new activity that might confuse the user.
+
+        To ensure a single activity is used for video playback requests and
+        switched into or out of PiP mode as needed, set the activity's
+        android:launchMode to singleTask
+        -->
+        <activity
+            android:name="com.example.pip.PictureInPictureActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:supportsPictureInPicture="true" />
+
+    </application>
+</manifest>
